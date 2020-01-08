@@ -106,7 +106,7 @@ table {
 }
 
 .flex-nav-2 .left-nav li{
-    margin-left: 8px;
+    margin-left: 12px;
     align-self: center;
     color: #aaa;
     font-size: 13px;
@@ -419,12 +419,13 @@ body h3:hover{
                              "news5" "news6" "news7" "news8";
         justify-content: left;
         height: auto;
-        grid-column: 2 / -2;
-        position: absolute;
+        grid-column: 1 / -1;
+        position: relative;
         margin-top: 100px;
         width: 100%;
         margin-left: 10px;
         width: calc(100% - 10px);
+        z-index: -1;
     }
 
     .latest-news-container .news img{
@@ -462,8 +463,8 @@ body h3:hover{
                              "news5" "news6" "news7" "news8";
         justify-content: left;
         height: auto;
-        grid-column: 2 / -2;
-        position: absolute;
+        grid-column: 1 / -1;
+        position: relative;
         margin-top: 100px;
         margin-left: 10px;
         width: calc(100% - 10px);
@@ -489,4 +490,243 @@ body h3:hover{
         line-height: 18px;
     }
 
+}
+
+/*funding*/
+.funding-container{
+    display: grid;
+    grid-template-columns: 1fr 12fr 1fr;
+    margin-top: 30px;
+}
+
+.funding-container .flex-heading{
+    grid-column: 2 / -2;
+}
+
+.flex-heading ul{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.flex-heading ul .left{
+    color: #f42;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.flex-heading ul .left:hover{
+    color: black;
+}
+
+.flex-heading ul .right{
+    display: flex;
+    color: #f42;
+    font-size: 16px;
+    align-items: center;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.flex-heading ul .right li:hover{
+    color: black;
+}
+
+.flex-heading ul .right .standing-line{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.funding-container section{
+    grid-column: 2 / -2;
+    display: grid;
+    grid-template-areas: "funding1 funding2 funding3 funding4";
+    justify-content: space-between;
+}
+
+section .funding{
+    margin-top: 10px;
+    display: grid;
+    /*grid-template-columns: 1fr;*/
+    /*grid-template-rows: "company icons text";*/
+    width: 250px;
+    background: #fffaf8;
+}
+
+.funding .company{
+    display: grid;
+    grid-template-columns: 1fr; 
+    width: auto;
+}
+
+.funding .top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(to bottom, orangered 50%, #ffebe7 50%);
+}
+
+.company img{
+    position: absolute;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.top h2{
+    line-height: 41px;
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin-left: 60px;
+}
+
+.top .money{
+    line-height: 20px;
+    color: black;
+    font-weight: bold;
+    margin-right: 53px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.top .money span{
+    color: #808080;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.funding .icons{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.icons .one,
+.icons .two{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.icons .one i,
+.icons .two i{
+    font-size: 15px;
+}
+
+.icons .one span,
+.icons .two span{
+    margin-left: 10px;
+}
+
+.funding .text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-family: sans-serif; 
+}
+
+.text .one{
+    line-height: 30px;
+}
+
+.text .two span{
+    margin-left: 5px;
+    color: #808080;
+}
+
+/*funding section responsiveness*/
+@media only screen and (max-width: 1000px){
+    .funding-container .flex-heading{
+        grid-column: 1 / -1;
+        margin-left: 10px;
+    }
+
+    .flex-heading ul{
+        flex-direction: column;
+    }
+
+    .flex-heading .right{
+        margin-top: 10px;
+    }
+
+    .funding-container section{
+        grid-template-columns: repeat(3, minmax(225px, 310px));
+        position: relative;
+        grid-column: 1 / -1;
+        grid-gap: 10px;
+        margin-left: 10px;
+    } 
+
+    .funding-container section .funding4{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 760px){
+    .funding-container .flex-heading{
+        grid-column: 1 / -1;
+        margin-left: 10px;
+    }
+
+    .flex-heading ul{
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+    }
+
+    .flex-heading ul .right{
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 35px;
+    }
+
+    .flex-heading ul .right .standing-line{
+        display: none;
+    }
+    
+    .funding-container section{
+        grid-template-columns: 1fr;
+        width: auto;
+    }
+
+    .funding-container section .funding{
+        grid-template-columns: 1fr;
+        grid-column: 1 / -1;
+        width: calc(100% - 10px);
+        overflow: hidden;
+        height: auto;
+    }
+
+    .funding .company,
+    .funding .icons{
+        width: auto;
+        position: sticky;
+    }
+
+    .funding .text,
+    .funding .icons .one,
+    .funding .icons .two{
+        flex-wrap: wrap;
+    }
+
+    .funding .icons .one{
+        line-height: 26px;
+    }
+    .funding .company .top{
+        flex-wrap: wrap;
+    }
+
+    .funding .company img{
+        margin-left: 10px;
+    }
 }
